@@ -13,7 +13,14 @@ This repository contains the mobile application for the [Classpip](https://www.c
 
 ## Global dependencies
 
-Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/dist/latest-v5.x/) or use your favorite package manager. It's best to get the 5x version of node along with the 3x version of npm. This offers the best in stability and speed for building.
+Make sure you have NodeJS installed. Download the installer [here](https://nodejs.org/dist/latest-v8.x/) or use your favorite package manager. It's best to get the 8x version of node along with the 5x version of npm. This offers the best in stability and speed for building.
+
+```
+node -v
+> v8.6.0
+npm -v
+> 5.4.2
+```
 
 ```
 npm install -g ionic@2.2.2
