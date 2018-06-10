@@ -12,6 +12,8 @@ export class AppConfig {
   public static get MATTERS_URL(): string { return this.SERVER_URL + '/api/matters'; }
   public static get GRADES_URL(): string { return this.SERVER_URL + '/api/grades'; }
   public static get GROUP_URL(): string { return this.SERVER_URL + '/api/groups'; }
+  public static get COMPETITION_URL(): string { return this.SERVER_URL + '/api/competitions'; }
+  public static get JOURNEY_URL(): string { return this.SERVER_URL + '/api/journeys'; }
 
   public static get LOGIN_URL(): string { return '/login'; }
   public static get LOGOUT_URL(): string { return '/logout'; }
@@ -21,6 +23,10 @@ export class AppConfig {
   public static get STUDENTS_URL(): string { return '/students'; }
   public static get COUNT_URL(): string { return '/count'; }
   public static get GROUPS_URL(): string { return '/groups'; }
+  public static get COMPETITIONS_URL(): string { return '/competitions'; }
+  public static get JOURNEYS_URL(): string { return '/journeys'; }
+  public static get MATCHES_URL(): string { return '/matches'; }
+  public static get TEAMS_URL(): string { return '/teams'; }
 
   public static get AUTH_HEADER(): string { return 'Authorization'; }
 

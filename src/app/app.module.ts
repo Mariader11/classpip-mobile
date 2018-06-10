@@ -22,6 +22,7 @@ import { TeacherPage } from '../pages/teachers/teacher/teacher';
 import { StudentsPage } from '../pages/students/students';
 import { StudentPage } from '../pages/students/student/student';
 import { GroupPage } from '../pages/group/group';
+import { CompetitionsPage } from '../pages/competitions/competitions';
 
 // pipes
 import { OrderByIdPipe } from '../pipes/order-by-id.pipe';
@@ -39,6 +40,7 @@ import { MatterService } from '../providers/matter.service';
 import { SchoolService } from '../providers/school.service';
 import { UserService } from '../providers/user.service';
 import { UtilsService } from '../providers/utils.service';
+import { CompetitionService } from '../providers/competition.service'
 
 // rxjs
 import 'rxjs/add/operator/map';
@@ -70,6 +72,7 @@ export function exportTranslateStaticLoader(http: Http) {
     StudentsPage,
     StudentPage,
     GroupPage,
+    CompetitionsPage,
     // pipes
     OrderByIdPipe,
     OrderByNamePipe,
@@ -99,7 +102,8 @@ export function exportTranslateStaticLoader(http: Http) {
     TeacherPage,
     StudentsPage,
     StudentPage,
-    GroupPage
+    GroupPage,
+    CompetitionsPage
   ],
   providers: [
     IonicService,
@@ -112,6 +116,7 @@ export function exportTranslateStaticLoader(http: Http) {
     SchoolService,
     UserService,
     UtilsService,
+    CompetitionService
   ]
 })
 export class AppModule { }

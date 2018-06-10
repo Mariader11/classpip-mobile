@@ -10,6 +10,7 @@ import { RoleSelectPage } from '../../pages/role-select/role-select';
 import { HomePage } from '../../pages/home/home';
 import { SchoolPage } from '../../pages/school/school';
 import { ProfilePage } from '../../pages/profile/profile';
+import { CompetitionsPage } from '../competitions/competitions';
 import { Page } from '../../model/page';
 import { School } from '../../model/school';
 
@@ -24,6 +25,7 @@ export class MenuPage {
   public rootPage: Component;
   public homePage: Page;
   public schoolPage: Page;
+  public competitionsPage: Page;
 
   constructor(
     public navController: NavController,
@@ -36,6 +38,7 @@ export class MenuPage {
     this.rootPage = HomePage;
     this.homePage = new Page(HomePage, this.translateService.instant('HOME.TITLE'));
     this.schoolPage = new Page(SchoolPage, this.translateService.instant('SCHOOL.TITLE'));
+    this.competitionsPage = new Page(CompetitionsPage, this.translateService.instant('COMPETITIONS.TITLE'));
   }
   /**
    * Method for opening a page
@@ -76,6 +79,10 @@ export class MenuPage {
         this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
         this.ionicService.removeLoading();
       });
+  }
+
+  public goToCompetitions(): void {
+    this.navController.push(this.competitionsPage.component);
   }
 
 }

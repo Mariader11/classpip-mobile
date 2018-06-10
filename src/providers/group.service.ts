@@ -11,6 +11,7 @@ import { Group } from '../model/group';
 import { Grade } from '../model/grade';
 import { Matter } from '../model/matter';
 import { Student } from '../model/student';
+import { Team } from '../model/team';
 
 @Injectable()
 export class GroupService {
@@ -114,6 +115,37 @@ export class GroupService {
 
     return this.http.get(url, options)
       .map((response: Response, index: number) => Group.toObjectArray(response.json()))
+  }
+
+     /**
+   * Returns the information of the group by a group id
+   * @return {Group} returns the group
+   */
+  public getGroup(id: number): Observable<Group> {
+
+    const options: RequestOptions = new RequestOptions({
+      headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
+    });
+
+    return this.http.get(AppConfig.GROUP_URL + '/' + id, options)
+      .map((response: Response, index: number) => Group.toObject(response.json()))
+      .catch((error: Response) => this.utilsService.handleAPIError(error));
+  }
+
+  /**
+  * GET: Returns the list of teams of a group
+  * @return {Observable<Array<Team>>} returns the list of teams
+  */
+  public getGroupTeams(groupId: string | number): Observable<Array<Team>> {
+
+   const options: RequestOptions = new RequestOptions({
+    headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
+   });
+   const url: string = AppConfig.GROUP_URL + '/' + groupId + AppConfig.TEAMS_URL;
+
+   return this.http.get(url, options)
+    .map((response: Response, index: number) => Team.toObjectArray(response.json()))
+    .catch((error: Response) => this.utilsService.handleAPIError(error));
   }
 
 }
