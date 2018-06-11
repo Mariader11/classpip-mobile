@@ -27,7 +27,7 @@
     <ion-icon class="btn-icon" name="calendar"></ion-icon>
     Calendario
   </button>
-  <button class="btn" ion-button icon-left full>
+  <button *ngIf="competition.mode === 'Equipos'" class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="people"></ion-icon>
     Equipos
   </button>
