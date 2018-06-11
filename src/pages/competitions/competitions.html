@@ -17,5 +17,23 @@
 
 
 <ion-content padding>
-  <p>Holi</p>
+  <ion-refresher (ionRefresh)="getMyCompetitionsInfo($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let competition of competitions" (click)="goToCompetition(competition)">
+      <ion-avatar item-left>
+        <img *ngIf="competition.type === 'Liga'" src="assets/liga-icon.svg">
+        <img *ngIf="competition.type === 'Tenis'" src="assets/tenis-icon.svg">
+      </ion-avatar>
+      <h2> {{ competition.name }} </h2>
+      <p> {{ competition.grade.name }} {{ competition.matter.name }} </p>
+      <ion-icon name="ios-arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="competitions.length == 0">
+    <h2 *ngIf="myRole == role.TEACHER">No has creado ninguna competición</h2>
+    <h2 *ngIf="myRole == role.STUDENT">No perteneces a ninguna competición</h2>
+    <h2 *ngIf="myRole == role.SCHOOLADMIN">Sección para profesores y estudiantes</h2>
+  </div>
 </ion-content>

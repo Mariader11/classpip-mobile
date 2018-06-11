@@ -23,6 +23,8 @@ import { StudentsPage } from '../pages/students/students';
 import { StudentPage } from '../pages/students/student/student';
 import { GroupPage } from '../pages/group/group';
 import { CompetitionsPage } from '../pages/competitions/competitions';
+import { LeaguePage } from '../pages/competitions/league/league';
+import { TennisPage } from '../pages/competitions/tennis/tennis';
 
 // pipes
 import { OrderByIdPipe } from '../pipes/order-by-id.pipe';
@@ -73,6 +75,8 @@ export function exportTranslateStaticLoader(http: Http) {
     StudentPage,
     GroupPage,
     CompetitionsPage,
+    LeaguePage,
+    TennisPage,
     // pipes
     OrderByIdPipe,
     OrderByNamePipe,
@@ -103,7 +107,9 @@ export function exportTranslateStaticLoader(http: Http) {
     StudentsPage,
     StudentPage,
     GroupPage,
-    CompetitionsPage
+    CompetitionsPage,
+    LeaguePage,
+    TennisPage
   ],
   providers: [
     IonicService,
