@@ -1,19 +1,44 @@
-<!--
-  Generated template for the Tennis page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="primary">
-    <button ion-button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Tenis</ion-title>
-  </ion-navbar>
+
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Torneo de tenis</ion-title>
+      </ion-navbar>
+
 </ion-header>
 
-
 <ion-content padding>
+  <div class="title">
+    <h1 align="center">{{competition.name}}</h1>
+  </div>
+  <button class="btn" ion-button icon-left full>
+   <ion-icon class="btn-icon" name="trophy"></ion-icon>
+   Seguimiento del torneo
+  </button>
+  <button class="btn" ion-button icon-left full>
+    <ion-icon class="btn-icon" name="calendar"></ion-icon>
+    Calendario
+  </button>
+  <button *ngIf="competition.mode === 'Equipos'" class="btn" ion-button icon-left full>
+    <ion-icon class="btn-icon" name="people"></ion-icon>
+    Equipos
+  </button>
+  <button class="btn" ion-button icon-left full (click)="showInformation()">
+    <ion-icon class="btn-icon" name="information-circle"></ion-icon>
+    Mostrar información
+  </button>
+  <ion-card *ngIf="showInfo">
+    <ion-card-header>
+      Información sobre esta competición:
+    </ion-card-header>
+    <ion-card-content>
+      {{competition.information}}
+    </ion-card-content>
+  </ion-card>
+  <button class="delete-btn" ion-button color="danger" full>
+      <ion-icon class="btn-icon" name="trash"></ion-icon>
+    Eliminar competición</button>
 
 </ion-content>

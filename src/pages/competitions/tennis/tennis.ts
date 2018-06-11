@@ -9,15 +9,19 @@ import { Competition } from '../../../model/competition';
 export class TennisPage {
 
   public competition: Competition;
+  public showInfo: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.competition = this.navParams.get('competition');
-    // tslint:disable-next-line:no-console
-    console.log(this.competition);
+    this.showInfo = false;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TennisPage');
+
+  }
+
+  showInformation() {
+    this.showInfo === false ? this.showInfo = true : this.showInfo = false;
   }
 
 }
