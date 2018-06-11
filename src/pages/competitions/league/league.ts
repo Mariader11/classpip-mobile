@@ -9,23 +9,27 @@ import { Competition } from '../../../model/competition';
 export class LeaguePage {
 
   public competition: Competition;
+  public showInfo: boolean;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController) {
     this.competition = this.navParams.get('competition');
-    // tslint:disable-next-line:no-console
-    console.log(this.competition);
+    this.showInfo = false;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LeaguePage');
+
+  }
+
+  showInformation() {
+    this.showInfo === false ? this.showInfo = true : this.showInfo = false;
   }
 
   showConfirm() {
     const confirm = this.alertCtrl.create({
       title: '¿Desea eliminar la competición?',
-      message: 'La competición sería eliminada de forma permanente',
+      message: 'La competición quedaría eliminada de forma permanente',
       buttons: [
         {
           text: 'Eliminar',

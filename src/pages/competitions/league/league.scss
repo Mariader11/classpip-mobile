@@ -1,3 +1,17 @@
 page-league {
+  .btn {
+    margin: 20px auto;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    border-radius: 10px;
+  }
 
+  .delete-btn {
+    margin-top: 30px;
+  }
+
+  .btn-icon {
+    margin-right: 5px;
+  }
 }
