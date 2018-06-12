@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Competition } from '../../../model/competition';
+import { TeamsPage } from '../teams/teams';
 
 @Component({
   selector: 'page-league',
@@ -26,26 +27,8 @@ export class LeaguePage {
     this.showInfo === false ? this.showInfo = true : this.showInfo = false;
   }
 
-  showConfirm() {
-    const confirm = this.alertCtrl.create({
-      title: '¿Desea eliminar la competición?',
-      message: 'La competición quedaría eliminada de forma permanente',
-      buttons: [
-        {
-          text: 'Eliminar',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Cancelar',
-          handler: () => {
-            console.log('Agree clicked');
-          }
-        }
-      ]
-    });
-    confirm.present();
+  goToTeams() {
+    this.navCtrl.push(TeamsPage, {competitionId: this.competition.id})
   }
 
 }

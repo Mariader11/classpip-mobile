@@ -156,56 +156,6 @@ export class CompetitionService {
       .catch((error: Response) => this.utilsService.handleAPIError(error));
   }
 
-  /** DELETE: delete the competition from the server */
-  public deleteCompetition (competitionId: number): Observable<{}> {
-    const options: RequestOptions = new RequestOptions({
-      headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
-    });
-    const url = AppConfig.COMPETITION_URL + '/' + competitionId;
-    return this.http.delete(url, options)
-      .map((response: Response) => response.json())
-      .catch((error: Response) => this.utilsService.handleAPIError(error));
-  }
-
-  /** DELETE: delete the journeys of one competition from the server */
-  public deleteJourneysCompetition (competitionId: number): Observable<{}> {
-    const options: RequestOptions = new RequestOptions({
-      headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
-    });
-    const url = AppConfig.COMPETITION_URL + '/' + competitionId + AppConfig.JOURNEYS_URL;
-    return this.http.delete(url, options)
-      .map((response: Response) => response.json())
-      .catch((error: Response) => this.utilsService.handleAPIError(error));
-  }
-
-  /** DELETE: delete the matches of one journey from the server */
-  public deleteMatchesCompetition (journeyId: number): Observable<{}> {
-    const options: RequestOptions = new RequestOptions({
-      headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
-    });
-    const url = AppConfig.JOURNEY_URL + '/' + journeyId + AppConfig.MATCHES_URL;
-    return this.http.delete(url, options)
-      .map((response: Response) => response.json())
-      .catch((error: Response) => this.utilsService.handleAPIError(error));
-  }
-
-  /** DELETE: delete the partitipants of one competition from the server */
-  public deleteParticipantsCompetition (competition: Competition): Observable<{}> {
-    const options: RequestOptions = new RequestOptions({
-      headers: this.utilsService.setAuthorizationHeader(new Headers(), this.utilsService.currentUser.id)
-    });
-
-    if (competition.mode === 'Individual') {
-      return this.http.delete(AppConfig.COMPETITION_URL + '/' + competition.id + AppConfig.STUDENTS_URL, options)
-       .map((response: Response) => response.json())
-       .catch((error: Response) => this.utilsService.handleAPIError(error));
-    } else {
-      return this.http.delete(AppConfig.COMPETITION_URL + '/' + competition.id + AppConfig.TEAMS_URL, options)
-       .map((response: Response) => response.json())
-       .catch((error: Response) => this.utilsService.handleAPIError(error));
-    }
-  }
-
     /**
   * This method returns the list of competitions
   * of a team with the group (grade and matter)

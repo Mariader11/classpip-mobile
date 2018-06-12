@@ -21,7 +21,7 @@
     <ion-icon class="btn-icon" name="calendar"></ion-icon>
     Calendario
   </button>
-  <button *ngIf="competition.mode === 'Equipos'" class="btn" ion-button icon-left full>
+  <button *ngIf="competition.mode === 'Equipos'" (click)="goToTeams()" class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="people"></ion-icon>
     Equipos
   </button>
@@ -37,8 +37,5 @@
       {{competition.information}}
     </ion-card-content>
   </ion-card>
-  <button class="delete-btn" ion-button color="danger" full>
-      <ion-icon class="btn-icon" name="trash"></ion-icon>
-    Eliminar competición</button>
 
 </ion-content>

@@ -1,18 +1,10 @@
-<!--
-  Generated template for the League page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-    <ion-navbar color="primary">
-        <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Liga</ion-title>
-      </ion-navbar>
-
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Liga</ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
@@ -27,7 +19,7 @@
     <ion-icon class="btn-icon" name="calendar"></ion-icon>
     Calendario
   </button>
-  <button *ngIf="competition.mode === 'Equipos'" class="btn" ion-button icon-left full>
+  <button *ngIf="competition.mode === 'Equipos'" (click)="goToTeams()" class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="people"></ion-icon>
     Equipos
   </button>
@@ -43,8 +35,5 @@
       {{competition.information}}
     </ion-card-content>
   </ion-card>
-  <button class="delete-btn" ion-button color="danger" (click)="showConfirm()" full>
-      <ion-icon class="btn-icon" name="trash"></ion-icon>
-    Eliminar competición</button>
 
 </ion-content>

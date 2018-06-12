@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Competition } from '../../../model/competition';
+import { TeamsPage } from '../teams/teams';
 
 @Component({
   selector: 'page-tennis',
@@ -22,6 +23,10 @@ export class TennisPage {
 
   showInformation() {
     this.showInfo === false ? this.showInfo = true : this.showInfo = false;
+  }
+
+  goToTeams() {
+    this.navCtrl.push(TeamsPage, {competitionId: this.competition.id})
   }
 
 }
