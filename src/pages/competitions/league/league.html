@@ -11,9 +11,9 @@
   <div class="title">
     <h1 align="center">{{competition.name}}</h1>
   </div>
-  <button class="btn" ion-button icon-left full>
+  <button class="btn" ion-button icon-left full (click)="gotoClassification()">
    <ion-icon class="btn-icon" name="trophy"></ion-icon>
-   Clasificación
+   {{ 'CLASSIFICATION.TITLE' | translate }}
   </button>
   <button class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="calendar"></ion-icon>

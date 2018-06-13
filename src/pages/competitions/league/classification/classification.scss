@@ -1,0 +1,76 @@
+page-classification {
+
+  ion-col {
+    background-color: #f0f5ff;
+    border: 1px solid #e6e9ee;
+    border-radius: 2px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  p {
+    padding: 10px 0 0 10px !important;
+    margin: 0;
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 1em 0;
+    caption-side: top;
+    border-collapse: collapse;
+  }
+
+  thead {
+    border: 0;
+  }
+
+  tbody {
+    border: 1px solid #999;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  caption, td, th {
+    padding: 0.3em;
+  }
+  th, td {
+    border-bottom: 1px solid #999;
+    width: 14%;
+  }
+  caption {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+
+  table tr:nth-child(even) {
+    background-color: #efefef;
+  }
+
+  .name {
+    text-align: left;
+    width: 25%;
+  }
+
+  .position {
+    width: 5%;
+  }
+
+  .points {
+    background: khaki;
+  }
+
+  .information {
+    font-size: 75%;
+  }
+
+  #position_1 {
+    background: olivedrab;
+  }
+
+  .legend {
+    margin-top: 10px;
+  }
+
+}

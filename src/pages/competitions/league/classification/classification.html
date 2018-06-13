@@ -1,0 +1,60 @@
+<!--
+  Generated template for the Classification page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'CLASSIFICATION.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <table>
+    <caption *ngIf="competition">{{ 'CLASSIFICATION.LEAGUE' | translate }} {{competition.name}}</caption>
+    <thead>
+      <tr class="tableHeader">
+        <th class="position">{{ 'CLASSIFICATION.N_S' | translate }}</th>
+        <th class="name">{{ 'CLASSIFICATION.PARTICIPANT' | translate }}</th>
+        <th>{{ 'CLASSIFICATION.PLAYED_S' | translate }}</th>
+        <th>{{ 'CLASSIFICATION.WON_S' | translate }}</th>
+        <th>{{ 'CLASSIFICATION.DRAW_S' | translate }}</th>
+        <th>{{ 'CLASSIFICATION.LOST_S' | translate }}</th>
+        <th>{{ 'CLASSIFICATION.POINTS_S' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let score of scores ; let i=index;">
+        <td id="position_{{i + 1}}" class="position">{{score.position}}</td>
+        <td class="name">{{score.name}}</td>
+        <td>{{score.played}}</td>
+        <td>{{score.won}}</td>
+        <td>{{score.draw}}</td>
+        <td>{{score.lost}}</td>
+        <td class="points">{{score.points}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="legend">
+  <ion-grid>
+  <ion-row>
+    <ion-col>{{ 'CLASSIFICATION.N_S' | translate }} : {{ 'CLASSIFICATION.N' | translate }}</ion-col>
+    <ion-col>{{ 'CLASSIFICATION.PLAYED_S' | translate }} : {{ 'CLASSIFICATION.PLAYED' | translate }}</ion-col>
+    <ion-col>{{ 'CLASSIFICATION.WON_S' | translate }} : {{ 'CLASSIFICATION.WON' | translate }}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>{{ 'CLASSIFICATION.DRAW_S' | translate }}  : {{ 'CLASSIFICATION.DRAW' | translate }}</ion-col>
+    <ion-col>{{ 'CLASSIFICATION.LOST_S' | translate }} : {{ 'CLASSIFICATION.LOST' | translate }}</ion-col>
+    <ion-col>{{ 'CLASSIFICATION.POINTS_S' | translate }} : {{ 'CLASSIFICATION.POINTS' | translate }}</ion-col>
+  </ion-row>
+</ion-grid>
+  </div>
+  <div *ngIf="odd" class="information">
+    {{ 'CLASSIFICATION.INFORMATION' | translate }}
+  </div>
+</ion-content>

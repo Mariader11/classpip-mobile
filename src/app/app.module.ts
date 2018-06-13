@@ -26,6 +26,7 @@ import { CompetitionsPage } from '../pages/competitions/competitions';
 import { LeaguePage } from '../pages/competitions/league/league';
 import { TennisPage } from '../pages/competitions/tennis/tennis';
 import { TeamsPage } from '../pages/competitions/teams/teams';
+import { ClassificationPage } from '../pages/competitions/league/classification/classification';
 
 // pipes
 import { OrderByIdPipe } from '../pipes/order-by-id.pipe';
@@ -44,6 +45,7 @@ import { SchoolService } from '../providers/school.service';
 import { UserService } from '../providers/user.service';
 import { UtilsService } from '../providers/utils.service';
 import { CompetitionService } from '../providers/competition.service'
+import { JourneyService } from '../providers/journey.service';
 
 // rxjs
 import 'rxjs/add/operator/map';
@@ -79,6 +81,7 @@ export function exportTranslateStaticLoader(http: Http) {
     LeaguePage,
     TennisPage,
     TeamsPage,
+    ClassificationPage,
     // pipes
     OrderByIdPipe,
     OrderByNamePipe,
@@ -112,7 +115,8 @@ export function exportTranslateStaticLoader(http: Http) {
     CompetitionsPage,
     LeaguePage,
     TennisPage,
-    TeamsPage
+    TeamsPage,
+    ClassificationPage
   ],
   providers: [
     IonicService,
@@ -125,7 +129,8 @@ export function exportTranslateStaticLoader(http: Http) {
     SchoolService,
     UserService,
     UtilsService,
-    CompetitionService
+    CompetitionService,
+    JourneyService
   ]
 })
 export class AppModule { }

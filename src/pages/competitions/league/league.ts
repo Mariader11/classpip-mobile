@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Competition } from '../../../model/competition';
 import { TeamsPage } from '../teams/teams';
+import { ClassificationPage } from './classification/classification';
 
 @Component({
   selector: 'page-league',
@@ -25,6 +26,10 @@ export class LeaguePage {
 
   showInformation() {
     this.showInfo === false ? this.showInfo = true : this.showInfo = false;
+  }
+
+  gotoClassification() {
+    this.navCtrl.push(ClassificationPage, {competition: this.competition})
   }
 
   goToTeams() {
