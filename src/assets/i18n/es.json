@@ -74,6 +74,24 @@
   "COMPETITIONS": {
     "TITLE": "Competiciones"
   },
+  "CLASSIFICATION": {
+    "TITLE": "Clasificación",
+    "LEAGUE": "Clasificación de la liga:",
+    "PARTICIPANT": "Participante",
+    "PLAYED": "Jugados",
+    "PLAYED_S": "J",
+    "WON": "Ganados",
+    "WON_S": "G",
+    "DRAW": "Empatados",
+    "DRAW_S": "E",
+    "LOST": "Perdidos",
+    "LOST_S": "P",
+    "POINTS": "Puntos",
+    "POINTS_S": "Pts",
+    "N_S": "No.",
+    "N": "Número",
+    "INFORMATION": "*Los participantes con un número menos de enfrentamientos realizados se debe a la irregularidad de ser un número impar de participantes totales en esta liga. Los descansos que deben realizarse en cada jornada por parte de algún participante conlleva a no sumar puntos en esa jornada."
+  },
   "ERROR": {
     "LOGIN_FAILED": "El nombre de usuario y/o la contraseña son inválidas.",
     "LOGIN_FAILED_EMAIL_NOT_VERIFIED": "Tu correo no ha sido verificado aún, por favor, revisa tu correo.",
