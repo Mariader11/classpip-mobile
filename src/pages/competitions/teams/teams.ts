@@ -32,16 +32,24 @@ export class TeamsPage {
     this.getTeams();
   }
 
-  getTeams(): void {
+  /**
+   * This method returns the teams list of the current competition
+   */
+  private getTeams(): void {
     this.competitionService.getTeamsCompetition(this.competitionId)
     .subscribe((teams => {
         this.teams = teams,
         this.getStudents();
       }),
-      (error =>  this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+      (error => {
+        this.ionicService.removeLoading();
+        this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+      }));
   }
-
-  getStudents(): void {
+  /**
+   * This method returns the students list of each team
+   */
+  private getStudents(): void {
     let countTeams = 0;
     this.allStudents = [];
     for (let _t = 0; _t < this.teams.length; _t++) {
@@ -52,7 +60,10 @@ export class TeamsPage {
       countTeams = countTeams + 1;
       countTeams === this.teams.length ? this.ionicService.removeLoading() : null;
     }),
-    (error =>  this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+    (error => {
+      this.ionicService.removeLoading();
+      this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+    }));
     }
   }
 

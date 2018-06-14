@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Competition } from '../../../model/competition';
 import { TeamsPage } from '../teams/teams';
 import { TournamentsPage } from './tournaments/tournaments';
+import { JourneysTennisPage } from './journeys-tennis/journeys-tennis';
 
 @Component({
   selector: 'page-tennis',
@@ -20,17 +21,33 @@ export class TennisPage {
 
   ionViewDidLoad() {
   }
-
-  showInformation() {
-    this.showInfo === false ? this.showInfo = true : this.showInfo = false;
-  }
-
-  goToTournaments() {
+  /**
+   * Method called from the tennis page
+   * to open the tournaments page
+   */
+  private goToTournaments() {
     this.navCtrl.push(TournamentsPage, {competition: this.competition})
   }
-
-  goToTeams() {
+  /**
+   * Method called from the tennis page
+   * to open the calendary page
+   */
+  private gotoCalendary() {
+    this.navCtrl.push(JourneysTennisPage, {competition: this.competition})
+  }
+  /**
+   * Method called from the tennis page
+   * to open the teams page
+   */
+  private goToTeams() {
     this.navCtrl.push(TeamsPage, {competitionId: this.competition.id})
+  }
+  /**
+   * Method called from the tennis page to show
+   * or not show the information about the competition
+   */
+  private showInformation() {
+    this.showInfo === false ? this.showInfo = true : this.showInfo = false;
   }
 
 }

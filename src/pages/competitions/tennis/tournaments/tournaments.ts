@@ -12,12 +12,6 @@ import { Match } from '../../../../model/match';
 import { Team } from '../../../../model/team';
 import { Student } from '../../../../model/student';
 
-/*
-  Generated class for the Tournaments page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-tournaments',
   templateUrl: 'tournaments.html'
@@ -53,21 +47,26 @@ export class TournamentsPage {
     this.ionicService.showLoading(this.translateService.instant('APP.WAIT'));
     this.getJourneys();
   }
-
-  getJourneys(): void {
+  /**
+   * This method returns the journeys of the current competition
+   * and calls the getMatches method
+   */
+  private getJourneys(): void {
     this.journeyService.getJourneysCompetition(this.competition.id).subscribe(
       ((journeys: Array<Journey>) => {
         this.journeys = journeys;
         this.journeys.sort(function (a, b) { return (a.number - b.number); });
         this.getMatches();
-      }),
-      (error => {
+      }), (error => {
         this.ionicService.removeLoading();
         this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
       }));
   }
-
-  getMatches(): void {
+  /**
+   * This method returns the matches of each journey
+   * and calls the getParticipants method
+   */
+  private getMatches(): void {
     this.matchesJourneys = [];
     let journeysCompleted = 0;
     for (let _n = 0; _n < this.journeys.length; _n++) {
@@ -84,15 +83,17 @@ export class TournamentsPage {
           if ( this.lastJourney === undefined ) { this.lastJourney = this.journeys.length - 1; }
           this.getParticipants();
         }
-      }),
-      (error => {
+      }), (error => {
         this.ionicService.removeLoading();
         this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
       }));
     }
   }
-
-  getParticipants(): void {
+  /**
+   * This method returns the participants of the current competition
+   * and calls the getTournamentStatus method
+   */
+  private getParticipants(): void {
     this.participants = [];
     if (this.competition.mode === 'Individual') {
       this.competitionService.getStudentsCompetition(this.competition.id)
@@ -104,8 +105,7 @@ export class TournamentsPage {
           };
         }
         this.getTournamentStatus();
-      }),
-      (error => {
+      }), (error => {
         this.ionicService.removeLoading();
         this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
       }));
@@ -119,15 +119,17 @@ export class TournamentsPage {
           };
         }
         this.getTournamentStatus();
-      }),
-      (error => {
+      }), (error => {
         this.ionicService.removeLoading();
         this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
       }));
       }
   }
-
-  getTournamentStatus(): void {
+  /**
+   * This method divides the participants between the main tournament,
+   *  the secondary tournament and the eliminated ones
+   */
+  private getTournamentStatus(): void {
 
    this.participantsPrimary = [];
    this.participantsSecondary = [];
@@ -184,20 +186,16 @@ export class TournamentsPage {
     for (let _d = 0; _d < this.participants.length; _d++) {
       let count = 0;
       for (let _p = 0; _p < this.participantsPrimary.length; _p++) {
-        if ( this.participants[_d].name === this.participantsPrimary[_p] ) {
-          count = 1;
-        }
+        this.participants[_d].name === this.participantsPrimary[_p] ? count = 1 : null;
       }
-      if (count === 0) { this.participantsEliminated.push(this.participants[_d].name); }
+      count === 0 ?  this.participantsEliminated.push(this.participants[_d].name) : null;
     }
 
     let _q = 0;
     while (_q < this.participantsEliminated.length) {
       let count = 0;
       for (let _p = 0; _p < this.participantsSecondary.length; _p++) {
-        if ( this.participantsEliminated[_q] === this.participantsSecondary[_p] ) {
-          count = 1;
-        }
+        this.participantsEliminated[_q] === this.participantsSecondary[_p] ? count = 1 : null;
       }
       if (count === 1) {
        this.participantsEliminated.splice(_q, 1);

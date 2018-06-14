@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'COMPETITIONS.CALENDAR' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="getJourneys($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="dates">
+    <h4>{{ 'COMPETITIONS.CALENDAR_OF' | translate }} {{ 'COMPETITIONS.LEAGUE' | translate }}: {{ competition.name }}</h4>
+        <ion-card class="journey-card" *ngFor="let date of dates; let i=index;">
+          <ion-card-content>
+              <p><b>{{ 'COMPETITIONS.JOURNEY' | translate }} {{i + 1}}</b></p>
+           <table>
+              <caption>
+                {{ 'COMPETITIONS.DATE' | translate }}: {{date}}
+              </caption>
+              <thead>
+                <tr class="tableHeader">
+                  <th *ngIf="competition.mode == 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 1</th>
+                  <th *ngIf="competition.mode == 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 2</th>
+                  <th *ngIf="competition.mode == 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 1</th>
+                  <th *ngIf="competition.mode == 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 2</th>
+                  <th class="result">{{ 'COMPETITIONS.WINNER' | translate }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let score of matchesJourneys[i]">
+                  <td class="player">{{score.namePlayerOne}}</td>
+                  <td class="player">{{score.namePlayerTwo}}</td>
+                  <td class="result">{{score.result}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

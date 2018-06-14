@@ -1,20 +1,11 @@
-<!--
-  Generated template for the Competitions page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{ 'COMPETITIONS.TITLE' | translate }}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-refresher (ionRefresh)="getMyCompetitionsInfo($event)">
@@ -32,8 +23,8 @@
     </ion-item>
   </ion-list>
   <div *ngIf="competitions.length == 0">
-    <h2 *ngIf="myRole == role.TEACHER">No has creado ninguna competición</h2>
-    <h2 *ngIf="myRole == role.STUDENT">No perteneces a ninguna competición</h2>
-    <h2 *ngIf="myRole == role.SCHOOLADMIN">Sección para profesores y estudiantes</h2>
+    <h2 *ngIf="myRole == role.TEACHER">{{ 'COMPETITIONS.NONE_TEACHER' | translate }}</h2>
+    <h2 *ngIf="myRole == role.STUDENT">{{ 'COMPETITIONS.NONE_STUDENT' | translate }}</h2>
+    <h2 *ngIf="myRole == role.SCHOOLADMIN">{{ 'COMPETITIONS.NONE_SCHOOLADMIN' | translate }}</h2>
   </div>
 </ion-content>
