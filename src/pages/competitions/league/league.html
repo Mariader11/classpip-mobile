@@ -23,9 +23,13 @@
     <ion-icon class="btn-icon" name="people"></ion-icon>
     Equipos
   </button>
-  <button class="btn" ion-button icon-left full (click)="showInformation()">
+  <button *ngIf="!showInfo" class="btn" ion-button icon-left full (click)="showInformation()">
     <ion-icon class="btn-icon" name="information-circle"></ion-icon>
     Mostrar información
+  </button>
+  <button *ngIf="showInfo" class="btn" ion-button icon-left full (click)="showInformation()">
+    <ion-icon class="btn-icon" name="information-circle"></ion-icon>
+    <b>{{ 'COMPETITIONS.HIDE_INFO' | translate }}</b>
   </button>
   <ion-card *ngIf="showInfo">
     <ion-card-header>

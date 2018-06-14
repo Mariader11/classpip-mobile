@@ -1,0 +1,46 @@
+page-tournaments {
+
+  .title2 {
+    text-align: center;
+    margin: 15px auto;
+  }
+
+  .winner {
+    text-align: center;
+  }
+
+  .winner-card {
+    background-color: lightgreen;
+    padding: 20px;
+  }
+
+  .winner-card h1 {
+    margin-top: 20px;
+  }
+
+  .tournaments-card, .eliminated-card {
+    background-color: lightyellow;
+  }
+
+
+  .subtitle {
+    padding: 20px;
+    font-weight: bolder;
+  }
+
+  .item {
+    background-color: lightyellow;
+  }
+
+  .list {
+    padding-top: 0;
+  }
+
+  .noSecondPlayers {
+    padding-left: 15px;
+  }
+
+  h4 {
+    padding-top: 15px;
+  }
+}

@@ -65,9 +65,15 @@ export class CompetitionsPage {
                 this.competitions.push(competition);
               })
             }),
-            (error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+            (error => {
+              this.ionicService.removeLoading();
+              this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+            }));
           })),
-          (error =>  this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+          (error => {
+            this.ionicService.removeLoading();
+            this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+          }));
 
     } else if (this.myRole === Role.STUDENT) {
       this.competitions = [];
@@ -80,7 +86,10 @@ export class CompetitionsPage {
             this.competitions.push(competition);
           })
         }),
-        (error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+        (error => {
+          this.ionicService.removeLoading();
+          this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+        }));
       this.competitionService.getTeamsStudent(+this.utilsService.currentUser.userId).subscribe(
         ((teams: Array<Team>) =>
         teams.map( team => {
@@ -89,9 +98,15 @@ export class CompetitionsPage {
               competitions.map( competition => {
                   this.competitions.push(competition);
               })),
-              (error =>  this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+              (error => {
+                this.ionicService.removeLoading();
+                this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+              }));
         })),
-        (error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error)));
+        (error => {
+          this.ionicService.removeLoading();
+          this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+        }));
     }
   }
 
