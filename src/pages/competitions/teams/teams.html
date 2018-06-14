@@ -3,15 +3,15 @@
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Equipos</ion-title>
+        <ion-title>{{ 'COMPETITIONS.TEAMS' | translate }}</ion-title>
       </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card *ngFor="let team of teams; let i=index;">
+  <ion-card class="team-card" *ngFor="let team of teams; let i=index;">
     <ion-card-header>
-      <h1><strong>Equipo {{i + 1}}: {{team.name | uppercase}}</strong></h1>
+      <h1><strong>{{ 'COMPETITIONS.TEAM' | translate }} {{i + 1}}: {{team.name | uppercase}}</strong></h1>
       <h2>{{team.numPlayers}} jugadores</h2>
     </ion-card-header>
         <ion-list *ngFor="let student of allStudents[i]">

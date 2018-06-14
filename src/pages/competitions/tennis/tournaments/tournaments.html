@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'TENNIS.TOURNAMENT_TRACKING' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="finished">
+    <h2 class="title2">{{ 'TENNIS.TOURNAMENT_TRACKING' | translate }}: <b>{{ competition.name }}</b></h2>
+    <ion-card *ngIf="winner" class="winner-card">
+      <h3><b>{{ 'TOURNAMENTS.FINISHED' | translate }}.</b></h3>
+      <h1><p class="winner"><b>{{ 'COMPETITIONS.WINNER' | translate }}: {{winner}}</b></p></h1>
+    </ion-card>
+    <h4 *ngIf="!winner"><b>{{ 'TOURNAMENTS.PARTICIPANTS' | translate }} ({{ 'COMPETITIONS.JOURNEY_NUMBER' | translate }} {{lastJourney + 1}}):</b></h4>
+    <div *ngIf="!final">
+    <ion-card class="tournaments-card">
+      <ion-card-content>
+        <ion-list>
+          <h2 class="subtitle"> {{ 'TOURNAMENTS.PRINCIPAL' | translate }}</h2>
+          <ion-item *ngFor="let primary of participantsPrimary">
+            <ion-icon *ngIf="competition.mode === 'Individual'" name="person"></ion-icon>
+            <ion-icon *ngIf="competition.mode === 'Equipos'" name="people"></ion-icon>
+          <span>{{primary}}</span>
+          </ion-item>
+          <ion-item-divider></ion-item-divider>
+          <h2 class="subtitle">{{ 'TOURNAMENTS.SECONDARY' | translate }}</h2>
+          <ion-item *ngFor="let secondary of participantsSecondary">
+            <ion-icon *ngIf="competition.mode === 'Individual'" name="person"></ion-icon>
+            <ion-icon *ngIf="competition.mode === 'Equipos'" name="people"></ion-icon>
+            <span>{{secondary}}</span>
+          </ion-item>
+          <h2 class="noSecondPlayers" *ngIf="participantsSecondary.length === 0">{{ 'TOURNAMENTS.NO_PLAYER_SECONDARY' | translate }}.</h2>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="final">
+   <h4 class="final"><b>{{ 'TOURNAMENTS.FINAL' | translate }}:</b></h4>
+     <ion-card class="eliminated-card">
+       <ion-card-content>
+         <ion-list>
+           <h2 class="subtitle">{{ 'TOURNAMENTS.FINALISTS' | translate }}</h2>
+           <ion-item *ngFor="let final of participantsPrimary">
+            <ion-icon *ngIf="competition.mode === 'Individual'" name="person"></ion-icon>
+            <ion-icon *ngIf="competition.mode === 'Equipos'" name="people"></ion-icon>
+             <span>{{final}}</span>
+           </ion-item>
+         </ion-list>
+       </ion-card-content>
+     </ion-card>
+  </div>
+  <div>
+      <h4><b>{{ 'TOURNAMENTS.PLAYERS_ELIMINATED' | translate }}:</b></h4>
+      <ion-card class="eliminated-card">
+        <ion-card-content>
+          <ion-list>
+            <h2 class="subtitle">{{ 'TOURNAMENTS.ELIMINATED' | translate }}</h2>
+            <ion-item *ngFor="let eliminated of participantsEliminated">
+              <ion-icon *ngIf="competition.mode === 'Individual'" name="person"></ion-icon>
+              <ion-icon *ngIf="competition.mode === 'Equipos'" name="people"></ion-icon>
+              <span>{{eliminated}}</span>
+            </ion-item>
+            <ion-item *ngIf="participantsEliminated.length === 0">{{ 'TOURNAMENTS.NO_PLAYER_ELIMINATED' | translate }}.</ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+     </div>
+  </div>
+</ion-content>

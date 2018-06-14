@@ -27,6 +27,7 @@ import { LeaguePage } from '../pages/competitions/league/league';
 import { TennisPage } from '../pages/competitions/tennis/tennis';
 import { TeamsPage } from '../pages/competitions/teams/teams';
 import { ClassificationPage } from '../pages/competitions/league/classification/classification';
+import { TournamentsPage } from '../pages/competitions/tennis/tournaments/tournaments';
 
 // pipes
 import { OrderByIdPipe } from '../pipes/order-by-id.pipe';
@@ -82,6 +83,7 @@ export function exportTranslateStaticLoader(http: Http) {
     TennisPage,
     TeamsPage,
     ClassificationPage,
+    TournamentsPage,
     // pipes
     OrderByIdPipe,
     OrderByNamePipe,
@@ -116,7 +118,8 @@ export function exportTranslateStaticLoader(http: Http) {
     LeaguePage,
     TennisPage,
     TeamsPage,
-    ClassificationPage
+    ClassificationPage,
+    TournamentsPage
   ],
   providers: [
     IonicService,

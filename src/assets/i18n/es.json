@@ -72,7 +72,24 @@
     "EMAIL": "Correo Electrónico"
   },
   "COMPETITIONS": {
-    "TITLE": "Competiciones"
+    "TITLE": "Competiciones",
+    "SUBTITLE": "Tus competiciones:",
+    "NONE_STUDENT": "No participas en ninguna competición.",
+    "NONE_TEACHER": "No tiene ninguna competición creada.",
+    "JOURNEY": "Jornada",
+    "JOURNEYS": "Jornadas",
+    "JOURNEY_NUMBER": "jornada número",
+    "DATE": "Fecha",
+    "CALENDAR": "Calendario",
+    "CALENDAR_OF": "Calendario de la",
+    "CALENDAR_OF2": "Calendario del",
+    "TEAM": "Equipo",
+    "TEAMS": "Equipos",
+    "WINNER": "Ganador",
+    "SHOW_INFO": "Mostrar información",
+    "HIDE_INFO": "Ocultar la información",
+    "INFO_COMP": "Información sobre la competición",
+    "PLAY": "Jugar"
   },
   "CLASSIFICATION": {
     "TITLE": "Clasificación",
@@ -91,6 +108,26 @@
     "N_S": "No.",
     "N": "Número",
     "INFORMATION": "*Los participantes con un número menos de enfrentamientos realizados se debe a la irregularidad de ser un número impar de participantes totales en esta liga. Los descansos que deben realizarse en cada jornada por parte de algún participante conlleva a no sumar puntos en esa jornada."
+  },
+  "TENNIS": {
+    "TITLE": "Torneo de Tenis",
+    "TOURNAMENT_TRACKING": "Seguimiento del torneo",
+    "GHOST1": "Es posible que en alguna jornada haya usuarios llamados 'Ghost', estos corresponden a los jugadores ficticios introducidos",
+    "GHOST2": "para un correcto funcionamiento del torneo. Los jugadores que se enfrenten a ellos ganarán la jornada automáticamente",
+    "MORE_JOURNEY1": "No se pueden conocer los enfrentamientos de las jornadas restantes debido a que dependen del resultado de su jornada anterior",
+    "MORE_JOURNEY2": "Aunque es posible consultar los torneos implicados (principal y secundario) y la fecha prevista en caso de estar establecida"
+  },
+  "TOURNAMENTS": {
+    "PARTICIPANTS": "Participantes del torneo actuales",
+    "PRINCIPAL": "Torneo principal",
+    "SECONDARY": "Torneo secundario",
+    "NO_PLAYER_SECONDARY": "No hay jugadores en el torneo secundario",
+    "FINAL": "Final",
+    "FINALISTS": "Finalistas",
+    "ELIMINATED": "Eliminados",
+    "PLAYERS_ELIMINATED": "Participantes eliminados",
+    "NO_PLAYER_ELIMINATED": "No hay jugadores eliminados",
+    "FINISHED": "Este torneo ha finalizado"
   },
   "ERROR": {
     "LOGIN_FAILED": "El nombre de usuario y/o la contraseña son inválidas.",
