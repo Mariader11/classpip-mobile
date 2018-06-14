@@ -110,9 +110,11 @@ export class CompetitionsPage {
     }
   }
 
-
-
-  goToCompetition(competition) {
+    /**
+   * Method called from the competitions page to open
+   * one competition of the list of competitions
+   */
+  private goToCompetition(competition) {
     competition.type === 'Liga' ?
     this.navCtrl.push(LeaguePage, {competition: competition}) :
     this.navCtrl.push(TennisPage, {competition: competition});

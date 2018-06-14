@@ -12,7 +12,7 @@
   <ion-card class="team-card" *ngFor="let team of teams; let i=index;">
     <ion-card-header>
       <h1><strong>{{ 'COMPETITIONS.TEAM' | translate }} {{i + 1}}: {{team.name | uppercase}}</strong></h1>
-      <h2>{{team.numPlayers}} jugadores</h2>
+      <h2>{{team.numPlayers}} {{ 'COMPETITIONS.PLAYERS' | translate }}</h2>
     </ion-card-header>
         <ion-list *ngFor="let student of allStudents[i]">
           <button ion-item>

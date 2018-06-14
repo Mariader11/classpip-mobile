@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Liga</ion-title>
+    <ion-title>{{ 'COMPETITIONS.LEAGUE' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,25 +15,25 @@
    <ion-icon class="btn-icon" name="trophy"></ion-icon>
    {{ 'CLASSIFICATION.TITLE' | translate }}
   </button>
-  <button class="btn" ion-button icon-left full>
+  <button class="btn" ion-button icon-left full (click)="gotoCalendary()">
     <ion-icon class="btn-icon" name="calendar"></ion-icon>
-    Calendario
+    {{ 'COMPETITIONS.CALENDAR' | translate }}
   </button>
   <button *ngIf="competition.mode === 'Equipos'" (click)="goToTeams()" class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="people"></ion-icon>
-    Equipos
+    {{ 'COMPETITIONS.TEAMS' | translate }}
   </button>
   <button *ngIf="!showInfo" class="btn" ion-button icon-left full (click)="showInformation()">
     <ion-icon class="btn-icon" name="information-circle"></ion-icon>
-    Mostrar información
+     {{ 'COMPETITIONS.SHOW_INFO' | translate }}
   </button>
   <button *ngIf="showInfo" class="btn" ion-button icon-left full (click)="showInformation()">
     <ion-icon class="btn-icon" name="information-circle"></ion-icon>
-    <b>{{ 'COMPETITIONS.HIDE_INFO' | translate }}</b>
+    {{ 'COMPETITIONS.HIDE_INFO' | translate }}
   </button>
   <ion-card *ngIf="showInfo">
     <ion-card-header>
-      Información sobre esta competición:
+        {{ 'COMPETITIONS.INFO_COMP' | translate }}:
     </ion-card-header>
     <ion-card-content>
       {{competition.information}}

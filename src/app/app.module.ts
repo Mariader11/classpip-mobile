@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { DatePipe } from '@angular/common';
 
 // application
 import { MyApp } from './app.component';
@@ -28,6 +29,8 @@ import { TennisPage } from '../pages/competitions/tennis/tennis';
 import { TeamsPage } from '../pages/competitions/teams/teams';
 import { ClassificationPage } from '../pages/competitions/league/classification/classification';
 import { TournamentsPage } from '../pages/competitions/tennis/tournaments/tournaments';
+import { JourneysLeaguePage } from '../pages/competitions/league/journeys-league/journeys-league';
+import { JourneysTennisPage } from '../pages/competitions/tennis/journeys-tennis/journeys-tennis';
 
 // pipes
 import { OrderByIdPipe } from '../pipes/order-by-id.pipe';
@@ -84,6 +87,8 @@ export function exportTranslateStaticLoader(http: Http) {
     TeamsPage,
     ClassificationPage,
     TournamentsPage,
+    JourneysLeaguePage,
+    JourneysTennisPage,
     // pipes
     OrderByIdPipe,
     OrderByNamePipe,
@@ -119,7 +124,9 @@ export function exportTranslateStaticLoader(http: Http) {
     TennisPage,
     TeamsPage,
     ClassificationPage,
-    TournamentsPage
+    TournamentsPage,
+    JourneysLeaguePage,
+    JourneysTennisPage
   ],
   providers: [
     IonicService,
@@ -133,7 +140,8 @@ export function exportTranslateStaticLoader(http: Http) {
     UserService,
     UtilsService,
     CompetitionService,
-    JourneyService
+    JourneyService,
+    DatePipe
   ]
 })
 export class AppModule { }

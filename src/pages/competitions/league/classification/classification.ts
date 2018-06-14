@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Refresher } from 'ionic-angular';
 
 import { JourneyService } from '../../../../providers/journey.service';
 import { CompetitionService } from '../../../../providers/competition.service';
@@ -41,17 +41,28 @@ export class ClassificationPage {
     this.ionicService.showLoading(this.translateService.instant('APP.WAIT'));
     this.getJourneys();
   }
-
-  getJourneys(): void {
-    this.journeyService.getJourneysCompetition(this.competition.id).subscribe(
+  /**
+   * This method returns the journeys of the current competition
+   * and calls the getMatches method
+   */
+  private getJourneys(refresher?: Refresher): void {
+    this.journeyService.getJourneysCompetition(this.competition.id).finally(() => {
+      refresher ? refresher.complete() : null;
+    }).subscribe(
       ((journeys: Array<Journey>) => {
         this.journeys = journeys;
         this.getMatches();
       }),
-      error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error));
+      (error => {
+        this.ionicService.removeLoading();
+        this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+      }));
   }
-
-  getMatches(): void {
+  /**
+   * This method returns the matches of each journey
+   * and calls the getParticipants method
+   */
+  private getMatches(): void {
    let countJourneys = 0;
     this.matchesJourneys = [];
     for (let _j = 0; _j < this.journeys.length; _j++) {
@@ -67,11 +78,17 @@ export class ClassificationPage {
            this.getParticipants();
           }
       }),
-      error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error));
+      (error => {
+        this.ionicService.removeLoading();
+        this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+      }));
     }
   }
-
-  getParticipants(): void {
+  /**
+   * This method returns the participants of the current competition
+   * and calls the getScores method
+   */
+  private getParticipants(): void {
     this.participants = [];
     if (this.competition.mode === 'Individual') {
       this.competitionService.getStudentsCompetition(this.competition.id)
@@ -85,7 +102,10 @@ export class ClassificationPage {
         }
         this.getScores();
       }),
-      error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error));
+      (error => {
+        this.ionicService.removeLoading();
+        this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+      }));
       } else {
       this.competitionService.getTeamsCompetition(this.competition.id)
       .subscribe(( (teams: Array<Team>) => {
@@ -98,11 +118,17 @@ export class ClassificationPage {
         }
         this.getScores();
       }),
-      error => this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error));
+      (error => {
+        this.ionicService.removeLoading();
+        this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
+      }));
       }
   }
-
-  getScores(): void {
+  /**
+   * This method computes the score of each participant
+   * (position, points and played, won, draw and lost games)
+   */
+  private getScores(): void {
       this.scores = [];
       for (let _p = 0; _p < this.participants.length; _p++) {
         let score = { position: 0, name: this.participants[_p].name,
@@ -132,7 +158,6 @@ export class ClassificationPage {
         }
         this.scores.push(score);
       }
-      // ordenar descendentemente los resultados por sus puntos
       this.scores.sort(function (a, b) {
         return (b.points - a.points);
       });
