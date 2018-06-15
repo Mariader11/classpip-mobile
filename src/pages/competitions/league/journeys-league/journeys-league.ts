@@ -95,7 +95,7 @@ export class JourneysLeaguePage {
     }
   }
   /**
-   * This method make the dates and results of each journey
+   * This method make the date and results of each journey
    * to show in the journeys-league page
    */
   private getDatesAndResults(): void {

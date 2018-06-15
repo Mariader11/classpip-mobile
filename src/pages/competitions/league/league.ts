@@ -31,9 +31,9 @@ export class LeaguePage {
   }
   /**
    * Method called from the league page
-   * to open the calendary page
+   * to open the calendar page
    */
-  private gotoCalendary() {
+  private gotoCalendar() {
     this.navCtrl.push(JourneysLeaguePage, {competition: this.competition})
   }
   /**

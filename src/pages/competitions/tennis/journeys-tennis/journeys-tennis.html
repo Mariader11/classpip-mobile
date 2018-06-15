@@ -1,9 +1,98 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>journeys-tennis</ion-title>
-  </ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  <ion-title>{{ 'COMPETITIONS.CALENDAR' | translate }}</ion-title>
+</ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-refresher (ionRefresh)="getJourneys($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  <div *ngIf="results">
+        <h4>{{ 'COMPETITIONS.CALENDAR_OF2' | translate }} {{ 'TENNIS.TITLE' | translate }}: {{ competition.name }}</h4>
+            <ion-card class="journey-card" *ngFor="let date of dates; let i=index;">
+              <ion-card-content>
+                  <p><u><b>{{ 'COMPETITIONS.JOURNEY' | translate }} {{i + 1}}</b></u></p>
+                  <p class="date"><i>{{ 'COMPETITIONS.DATE' | translate }}: {{date}}</i></p>
+               <table *ngIf="matchesPrincipal[i].length !== 0">
+                  <caption>
+                   <p *ngIf="i !== numJourneys - 1"><b>{{ 'TOURNAMENTS.PRINCIPAL' | translate }}</b></p>
+                   <p *ngIf="i === numJourneys - 1"><b>{{ 'TOURNAMENTS.FINAL' | translate }}</b></p>
+                  </caption>
+                  <thead>
+                    <tr class="tableHeader">
+                      <th *ngIf="competition.mode === 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 1</th>
+                      <th *ngIf="competition.mode === 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 2</th>
+                      <th *ngIf="competition.mode === 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 1</th>
+                      <th *ngIf="competition.mode === 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 2</th>
+                      <th class="result">{{ 'COMPETITIONS.WINNER' | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let match of matchesPrincipal[i]">
+                      <td class="player">{{match.namePlayerOne}}</td>
+                      <td class="player">{{match.namePlayerTwo}}</td>
+                      <td class="result">{{match.result}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="thead-tbody" *ngIf="matchesSecondary[i].length !== 0">
+                <p><b>{{ 'TOURNAMENTS.SECONDARY' | translate }}</b></p>
+                <table>
+                  <thead>
+                    <tr class="tableHeader">
+                      <th *ngIf="competition.mode === 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 1</th>
+                      <th *ngIf="competition.mode === 'Individual'" class="player">{{ 'COMPETITIONS.PLAYER' | translate }} 2</th>
+                      <th *ngIf="competition.mode === 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 1</th>
+                      <th *ngIf="competition.mode === 'Equipos'" class="player">{{ 'COMPETITIONS.TEAM' | translate }} 2</th>
+                      <th class="result">{{ 'COMPETITIONS.WINNER' | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let match2 of matchesSecondary[i]">
+                      <td class="player">{{match2.namePlayerOne}}</td>
+                      <td class="player">{{match2.namePlayerTwo}}</td>
+                      <td class="result">{{match2.result}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="foot">
+            <ion-card class="foot">
+          * {{ 'TENNIS.GHOST1' | translate }}
+          {{ 'TENNIS.GHOST2' | translate }}.
+          </ion-card>
+        </div>
+        <div *ngIf="datesNoMatches">
+          <div *ngIf="datesNoMatches.length !==0">
+            <h6 class="foot2" *ngIf="!show">{{ 'TENNIS.MORE_JOURNEY1' | translate }}. {{ 'TENNIS.MORE_JOURNEY2' | translate }}:
+            </h6>
+            <h6 class="foot2" *ngIf="show">{{ 'TENNIS.LESS_JOURNEY' | translate }}:</h6>
+            <button ion-button class="morebtn" icon-only color="warn" *ngIf="!show" (click)="showMore()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+            <button ion-button class="morebtn" icon-only color="warn" *ngIf="show" (click)="showMore()">
+                <ion-icon name="remove"></ion-icon>
+            </button>
+            <div *ngIf="show" class="cardsNoMatch-div">
+            <ion-card class="dateNoMatch-card" *ngFor="let dateNoMatch of datesNoMatches; let i=index;">
+                <ion-card-header>
+                    <p><u><b>{{ 'COMPETITIONS.JOURNEY' | translate }} {{dateNoMatch.number}}</b></u></p>
+                  <p class="date">{{ 'COMPETITIONS.DATE' | translate }}: {{dateNoMatch.date}}</p>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-list role="list">
+                     <ion-item role="listitem" *ngFor="let tournament of tournaments[i]">- {{tournament}}</ion-item>
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
+        </div>
+      </div>
+      </div>
 </ion-content>

@@ -120,12 +120,16 @@
     "GHOST1": "Es posible que en alguna jornada haya usuarios llamados 'Ghost', estos corresponden a los jugadores ficticios introducidos",
     "GHOST2": "para un correcto funcionamiento del torneo. Los jugadores que se enfrenten a ellos ganarán la jornada automáticamente",
     "MORE_JOURNEY1": "No se pueden conocer los enfrentamientos de las jornadas restantes debido a que dependen del resultado de su jornada anterior",
-    "MORE_JOURNEY2": "Aunque es posible consultar los torneos implicados (principal y secundario) y la fecha prevista en caso de estar establecida"
+    "MORE_JOURNEY2": "Aunque es posible consultar los torneos implicados (principal y secundario) y la fecha prevista en caso de estar establecida, para ello presione el botón de más",
+    "LESS_JOURNEY": "Para ocultar esta sección, presione el boton de menos"
   },
   "TOURNAMENTS": {
     "PARTICIPANTS": "Participantes del torneo actuales",
     "PRINCIPAL": "Torneo principal",
     "SECONDARY": "Torneo secundario",
+    "PARTICIPATES": "Participa",
+    "DONT_PARTICIPATES": "No participa",
+    "NOT_ESTABLISHED": "No establecida",
     "NO_PLAYER_SECONDARY": "No hay jugadores en el torneo secundario",
     "FINAL": "Final",
     "FINALISTS": "Finalistas",
