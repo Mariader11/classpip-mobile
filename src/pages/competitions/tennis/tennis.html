@@ -1,12 +1,10 @@
 <ion-header>
-
     <ion-navbar color="primary">
         <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>{{ 'TENNIS.TITLE' | translate }}</ion-title>
       </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
@@ -17,9 +15,9 @@
    <ion-icon class="btn-icon" name="trophy"></ion-icon>
    {{ 'TENNIS.TOURNAMENT_TRACKING' | translate }}
   </button>
-  <button class="btn" ion-button icon-left full>
+  <button class="btn" ion-button (click)="goToCalendar()" icon-left full>
     <ion-icon class="btn-icon" name="calendar"></ion-icon>
-    {{ 'COMPETITIONS.JOURNEYS' | translate }}
+    {{ 'COMPETITIONS.CALENDAR' | translate }}
   </button>
   <button *ngIf="competition.mode === 'Equipos'" (click)="goToTeams()" class="btn" ion-button icon-left full>
     <ion-icon class="btn-icon" name="people"></ion-icon>

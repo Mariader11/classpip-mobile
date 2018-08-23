@@ -30,9 +30,9 @@ export class TennisPage {
   }
   /**
    * Method called from the tennis page
-   * to open the calendary page
+   * to open the calendar page
    */
-  private gotoCalendary() {
+  private goToCalendar() {
     this.navCtrl.push(JourneysTennisPage, {competition: this.competition})
   }
   /**

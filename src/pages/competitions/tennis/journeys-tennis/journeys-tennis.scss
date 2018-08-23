@@ -1,3 +1,108 @@
 page-journeys-tennis {
 
+  .journey-card {
+    background-color: lightyellow;
+    display: inline-flex;
+  }
+
+  .card-content {
+    width: 100%;
+  }
+
+
+  .dateNoMatch-card {
+    background-color: lightyellow;
+    display: inline-block;
+  }
+
+  h4, p {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  h6 {
+    font-size: 90%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    caption-side: top;
+    border-collapse: collapse;
+  }
+
+  thead {
+    border: 0;
+    text-align: left;
+  }
+
+  tbody {
+    border: 1px solid #999;
+    border-left: 0;
+    border-right: 0;
+  }
+
+  thead th {
+    background-color: lightyellow;
+  }
+
+  caption, td, th {
+    padding: 0.3em;
+  }
+  th, td {
+    border-bottom: 1px solid #999;
+  }
+  .date {
+    text-align: right;
+    margin-bottom: 0;
+  }
+
+  .cardsNoMatch-div {
+  margin-top: 10px;
+  }
+
+  .foot {
+    margin-top: 5px;
+    font-size: 90%;
+  }
+
+  .foot .foot {
+    padding: 10px;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #efefef;
+  }
+
+  table tr:nth-child(even) {
+    background-color: whitesmoke;
+  }
+
+  .player {
+    width: 30%;
+  }
+
+  .result {
+    background: khaki;
+    text-align: center;
+    width: 40%;
+  }
+
+  .card-header .date {
+    margin-top: 10px;
+  }
+
+  .morebtn {
+    margin: auto 44%;
+  }
+
+  .item {
+    background-color: lightyellow;
+  }
+
+  .foot2 {
+    padding-top: 10px;
+  }
+
 }

@@ -18,7 +18,7 @@
         <img *ngIf="competition.type === 'Tenis'" src="assets/tenis-icon.svg">
       </ion-avatar>
       <h2> {{ competition.name }} </h2>
-      <p> {{ competition.grade.name }} {{ competition.matter.name }} </p>
+      <p> {{ competition.grade.name }} {{ competition.matter.name }}, {{competition.mode}} </p>
       <ion-icon name="ios-arrow-forward" item-right></ion-icon>
     </ion-item>
   </ion-list>
