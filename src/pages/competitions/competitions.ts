@@ -53,13 +53,13 @@ export class CompetitionsPage {
       this.ionicService.removeLoading();
     } else if (this.myRole === Role.TEACHER) {
         this.competitions = [];
-        this.groupService.getMyGroups().subscribe(
+        this.groupService.getMyGroups().finally(() => {
+          refresher ? refresher.complete() : null;
+          this.ionicService.removeLoading();
+        }).subscribe(
           (( groups: Array<Group>) =>
            groups.map( group => {
-            this.competitionService.getMyCompetitionsByGroup(group).finally(() => {
-              refresher ? refresher.complete() : null;
-              this.ionicService.removeLoading();
-            }).subscribe(
+            this.competitionService.getMyCompetitionsByGroup(group).subscribe(
              ((competitions: Array<Competition>) => {
               competitions.map( competition => {
                 this.competitions.push(competition);
@@ -107,6 +107,7 @@ export class CompetitionsPage {
           this.ionicService.removeLoading();
           this.ionicService.showAlert(this.translateService.instant('APP.ERROR'), error);
         }));
+        this.ionicService.removeLoading();
     }
   }
 

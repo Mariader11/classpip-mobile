@@ -129,7 +129,7 @@ export class JourneysTennisPage {
         }
       }
     }
-    // INTRODUCE THE RESULT AND TO SEPARATE IN PRINCIPAL AND SECONDARY MATCHES
+    // TO INTRODUCE THE RESULT AND TO SEPARATE IN PRINCIPAL AND SECONDARY MATCHES
     this.matchesPrincipal = [];
     this.matchesSecondary = [];
     for (let _j = 0; _j < this.matchesJourneys.length; _j++) {

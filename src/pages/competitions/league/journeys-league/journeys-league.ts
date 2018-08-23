@@ -102,7 +102,7 @@ export class JourneysLeaguePage {
     this.dates = [];
     for (let _j = 0; _j < this.journeys.length; _j++) {
       this.journeys[_j].date === null ?
-        this.dates[_j] = 'No establecida' :
+        this.dates[_j] = this.translateService.instant('TOURNAMENTS.NOT_ESTABLISHED') :
         this.dates[_j] = this.datePipe.transform(this.journeys[_j].date, 'dd-MM-yyyy');
       for (let _m = 0; _m < this.matchesJourneys[_j].length; _m++) {
         if (this.matchesJourneys[_j][_m].winner === this.matchesJourneys[_j][_m].playerOne ) {
